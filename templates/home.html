@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Smart Student Expense Tracker</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <h2>🎓 Expense Tracker</h2>
+      <nav>
+        <a href="/home">Dashboard</a>
+        <a href="#">Income</a>
+        <a href="#">Expenses</a>
+        <a href="#">Reports</a>
+        <a href="#">Profile</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header">
+        <h1>Welcome Back, {{user[1]}} 👋</h1>
+        <p>Track your spending and stay within your budget.</p>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Balance</h3>
+          <p>৳ {{total_income - total_expense}}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Income</h3>
+          <p>৳ {{total_income}}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Expenses</h3>
+          <p>৳ {{total_expense}}</p>
+        </div>
+      </section>
+
+      <section class="transactions-section">
+        <h2>Recent Transactions</h2>
+        <table>
+          <thead>
+            <tr>
+               <th>Title</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Notes</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if transaction %}
+               {% for trans in transaction %}
+            <tr>
+              <td>{{trans[2]}}</td>
+              <td>{{trans[4]}}</td>
+              <td><span class="badge {{trans[5]}}">{{trans[5]}}</span></td>
+              <td>৳ {{trans[3]}}</td>
+              <td>{{trans[6]}}</td>
+              <td>{{trans[7]}}</td>
+              <td><button class="action-btn">Edit</button></td>
+            </tr>
+               {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="7">No transactions found.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
+
