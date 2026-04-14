@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Smart Student Expense Tracker</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-</head>
-<body>
-  <div class="dashboard-layout">
-    <aside class="sidebar">
-      <h2>🎓 Expense Tracker</h2>
-      <nav>
-        <a href="/home">Dashboard</a>
-        <a href="#">Income</a>
-        <a href="#">Expenses</a>
-        <a href="#">Reports</a>
-        <a href="#">Profile</a>
-      </nav>
-    </aside>
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Smart Student Expense Tracker{% endblock %}
+
+{% block content %}
 
     <main class="dashboard-main">
       <header class="dashboard-header">
@@ -80,4 +65,4 @@
 </body>
 </html>
 
-
+{% endblock %}

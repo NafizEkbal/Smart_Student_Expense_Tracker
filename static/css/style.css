@@ -300,3 +300,17 @@ td {
 .action-btn:hover {
   background: #1d4ed8;
 }
+
+.add-btn {
+  color: white;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 16px;
+}
