@@ -1,32 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard - Smart Student Expense Tracker{% endblock %}
+{% block title %}Income{% endblock %}
 
 {% block content %}
-
-    <main class="dashboard-main">
-      <header class="dashboard-header">
-        <h1>Welcome Back, {{user[1]}} 👋</h1>
-        <p>Track your spending and stay within your budget.</p>
-      </header>
-
-      <section class="stats-grid">
-        <div class="stat-card">
-          <h3>Total Balance</h3>
-          <p>৳ {{total_income - total_expense}}</p>
-        </div>
-        <div class="stat-card">
-          <h3>Income</h3>
-          <p>৳ {{total_income}}</p>
-        </div>
-        <div class="stat-card">
-          <h3>Expenses</h3>
-          <p>৳ {{total_expense}}</p>
-        </div>
-      </section>
-
-      <section class="transactions-section">
-        <h2>Recent Transactions</h2>
+    <section class="transactions-section">
+        <h2>Income History</h2>
         <table>
           <thead>
             <tr>
@@ -40,8 +18,8 @@
             </tr>
           </thead>
           <tbody>
-            {% if transaction %}
-               {% for trans in transaction %}
+            {% if income %}
+               {% for trans in income %}
             <tr>
               <td>{{trans[2]}}</td>
               <td>{{trans[4]}}</td>
@@ -60,9 +38,4 @@
           </tbody>
         </table>
       </section>
-    </main>
-  </div>
-</body>
-</html>
-
 {% endblock %}
