@@ -8,6 +8,8 @@ auth = Blueprint("auth",__name__)
 
 @auth.route("/")
 def login():
+    if "user_id" in session:
+        return redirect(url_for("dashboard.home"))
     return render_template("login.html")
 
 @auth.route("/login_validation",methods=["POST"])
@@ -31,6 +33,8 @@ def login_validation():
 
 @auth.route("/register")
 def register():
+    if "user_id" in session:
+        return redirect(url_for("dashboard.home"))
     return render_template("register.html")
 
 @auth.route("/add_user", methods =["POST"])
@@ -62,5 +66,5 @@ def add_user():
 
 @auth.route("/logout")
 def logout():
-    session.pop("user_id", None)
+    session.clear()
     return redirect(url_for("auth.login"))
